@@ -1,0 +1,19 @@
+name: Deploy Static Web App
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: web-app
+          path: index.html
